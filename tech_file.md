@@ -56,7 +56,7 @@ The temperature reading part includes two aspects, one is the temperature sensor
 
 ![image](https://github.com/user-attachments/assets/0b8dbce9-99cc-47ba-adf5-c67637c0d7f6)
 
-`<center>AMD Xilinx ug480_7series_XADC.pdf P57</center>`
+<center>AMD Xilinx ug480_7series_XADC.pdf P57</center>
 
 This temperature is used for subsequent fan speed regulation and OLED monitor display. To control the fan more finely, convert it in units of 0.1 degrees Celsius. Let the encoding of ADC be x, the temperature in Celsius (0.1'C) be T, then there is
 
