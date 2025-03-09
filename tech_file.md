@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/8787890a-cb41-4643-a4fd-dc25067d8bff)![image](https://github.com/user-attachments/assets/f72c304f-b39b-4642-838a-ebc296205566)
+[image](https://github.com/user-attachments/assets/f72c304f-b39b-4642-838a-ebc296205566)
 # LinFan: IC Thermal Management System Based on Programmable Hardware
 
 ## 1 Background
