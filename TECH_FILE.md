@@ -234,7 +234,7 @@ Now the entire system has completed half of it, and the remaining part is mainly
 
 ## 3 Design and Implementation of Display Screen Driver Module
 
-![image](https://github.com/user-attachments/assets/5b16f432-d9ca-43d9-85a4-c2351ec0302a)
+![image](https://github.com/user-attachments/assets/c2e271a1-6698-489b-8ec7-c63b910b97ec)
 <center>Display driver architecture</center>
 
 The display screen is an IIC interface, so an IIC driver is needed to convert data into I2C protocol waveforms. Going further, we need a data generator for displaying data and a module for sending data. The final plan is to display two main contents on the display screen, text version data and waveform version data, so two large register groups were designed to store these data.
@@ -260,7 +260,7 @@ Then, use an OR gate (two waveforms overlap and cannot be seen) or an XOR gate (
 ![image](https://github.com/user-attachments/assets/801a9922-bc24-4df0-9710-cf916f4705b6)
 <center>Overall Architecture: Architecture Diagram</center>
 
-![image](https://github.com/user-attachments/assets/1269ee19-b7a0-45fa-8a7a-26c99442d3fc)
+![image](https://github.com/user-attachments/assets/29fdcbec-c4cd-46c1-998d-b10766d17c9e)
 <center>Overall Architecture: Micro-architecture Diagram</center>
 
 At this point, the overall architecture of the system has also been implemented. The XADC Controller reads the temperature on the chip and provides it to the fan controller and display module. The fan controller outputs a control speed (speed, 0-100), which determines the duty cycle of the PWM waveform and is converted into the corresponding PWM waveform. The TACH feedback provided by the fan is converted into RPM value by RPM Counter and provided to the display module. The central FSM of the system is the fan control FSM, as shown in the following figure:
