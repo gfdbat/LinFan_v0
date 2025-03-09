@@ -4,7 +4,7 @@ LinFan: IC Thermal Management System Based on Programmable Hardware(FPGA)
 ![image](https://github.com/user-attachments/assets/0bfd6fd0-bd72-44fa-8426-1f03e38c921f)
 ![image](https://github.com/user-attachments/assets/9a396d07-e195-4f7c-a62f-770dbbcf31d3)
 
-(Also refer to TECH_FILE.md in detail)
+(Also refer to `TECH_FILE.md` in detail)
 
 LinFan is an efficient FPGA heat management system that provides functions such as temperature detection, fan control, RPM feedback, OLED display, etc. It can serve as a foundational module for more complex embedded systems.
 
