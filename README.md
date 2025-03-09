@@ -2,6 +2,7 @@
 LinFan: IC Thermal Management System Based on Programmable Hardware(FPGA)
 
 ![image](https://github.com/user-attachments/assets/0bfd6fd0-bd72-44fa-8426-1f03e38c921f)
+![image](https://github.com/user-attachments/assets/9a396d07-e195-4f7c-a62f-770dbbcf31d3)
 
 LinFan is an efficient FPGA heat management system that provides functions such as temperature detection, fan control, RPM feedback, OLED display, etc. It can serve as a foundational module for more complex embedded systems.
 
@@ -22,7 +23,7 @@ Follow the steps:
 * Set pin constraints to constrain the TACH and PWM interfaces of your fan, as well as the SCL and SDA interfaces of the screen IIC interface. Ensure that the TACH, SCL, and SDA interfaces are configured in PULLUP mode.
 * IMPORTANT: Modify the OLED intialization commands in `oled_data_gen.v`, accroding to your OLED controller User Manual
 * Finally, generate a bitstream!
-
+![image](https://github.com/user-attachments/assets/05b016e7-c0c8-42e4-be31-b38add38d9e9)
 # If you want to configure some parameters
 * Target On-chip Temperatue (Default 40'C)
   * In `embedded_ctrl.v`, change `temp_target` in the instance of cooler_ctrl_tempTarget
