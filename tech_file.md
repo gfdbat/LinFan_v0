@@ -56,7 +56,7 @@ The temperature reading part includes two aspects, one is the temperature sensor
 
 ![image](https://github.com/user-attachments/assets/0b8dbce9-99cc-47ba-adf5-c67637c0d7f6)
 
-<center>AMD Xilinx ug480_7series_XADC.pdf P57</center>
+`<center>AMD Xilinx ug480_7series_XADC.pdf P57</center>`
 
 This temperature is used for subsequent fan speed regulation and OLED monitor display. To control the fan more finely, convert it in units of 0.1 degrees Celsius. Let the encoding of ADC be x, the temperature in Celsius (0.1'C) be T, then there is
 
@@ -199,7 +199,7 @@ Step by step, first we try to light up the screen, then try to display one chara
 <center>Step 1: Turn on the screen(Don’t ask why it is shattered)</center>
 
 ![image](https://github.com/user-attachments/assets/c551dc45-8c47-43ad-9097-f43f283bb601)
-<center> Clear screen + write a few characters </center>
+<center>Step 2: Clear screen + write a few characters </center>
 
 The specific Verilog implementation mainly consists of two modules: `oled_data_gen` and `iic_dri`. The former generates pixel data to be displayed and initializes configuration commands, while the latter is the controller of IIC, both of which use FSM finite state machine method to implement.
 
