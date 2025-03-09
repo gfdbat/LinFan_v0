@@ -58,7 +58,7 @@ xadc_ctrl inst_xadc_c(
 cooler_ctrl_tempTarget inst_cooler_c(
     .clk(clk),
     .rstn(rstn),
-    .temp_target(450), // Set the Target Temperature. !!(Unit: 0.1'C)!!
+    .temp_target(400), // Set the Target Temperature. !!(Unit: 0.1'C)!!
     .temp(temp),
     .speed(speed)
 );
