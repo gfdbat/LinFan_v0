@@ -11,6 +11,7 @@ EC (Embedded Controller) is commonly used for control in commercial products. I 
 The project is named LinFan, which means "smart" in Changsha City of Hunan province. At the same time, LinFan also contains the English word 'Fan', which has a lot of meaning!
 
 ### 1.1 Composition of thermal management system
+
 Main control process:
 * temperature detection => fan speed regulation and driver
 
@@ -35,6 +36,7 @@ Fan control and feedback:
   * TACH/SENSE speed feedback
 
 ## 2 Specific Implementation Plan
+
 The control layer of the system (based on Zynq FPGA: xc7z020clg400-2):
 * Need a temperature reading module to read the temperature from the sensor
 * Need a fan speed regulation module to dynamically control the fan speed based on the absolute value and relative change of temperature. The specific control method is PWM
@@ -53,14 +55,21 @@ Regarding the control strategy of the fan:
 The temperature reading part includes two aspects, one is the temperature sensor (XADC embedded in FPGA), and the other is the controller XADC_ctrl for reading temperature. The controller continuously sends read data requests through XADC's DRP interface and reads the data when the temperature data is ready. The read data is the 12 bit raw data raw_temp, which needs to be converted according to the following formula to obtain the Celsius temperature:
 
 ![image](https://github.com/user-attachments/assets/0b8dbce9-99cc-47ba-adf5-c67637c0d7f6)
+
 <center>AMD Xilinx ug480_7series_XADC.pdf P57</center>
 
 This temperature is used for subsequent fan speed regulation and OLED monitor display. To control the fan more finely, convert it in units of 0.1 degrees Celsius. Let the encoding of ADC be x, the temperature in Celsius (0.1'C) be T, then there is
+
 $$T=(x\times\frac{503.975}{4096}-273.15)\times10=1.2304x-2731.5$$
+
 For example, when encoded as 0x997 (2455), the corresponding temperature is 28.91'C. Now we need to consider how to implement it using Verilog. While ensuring the conversion speed, try to increase it as much as possible. In terms of multiplication, shift is used:
+
 $$1.2304=1+0.125(1+0.25+0.125)+\delta=1.21875+\delta$$
+
 Corresponding to three shifts (>>3,>>4,>>5), the functions that Verilog can now implement:
+
 $$T_1=x+x>>3+x>>4+x>>5-2731=1.21875x-2731$$
+
 Of course, this comes at the cost of accuracy, with a slope difference of as much as 0.01. Considering the temperature encoding is relatively large, which will result in single digit and significant errors. Consider adjusting the intercept to correct this error. Note that the application scenario is for daily use, with temperatures roughly ranging from 20 ° C to 100 ° C, just need to control the error within this range. Observing that by adjusting the intercept, the average error can be reduced, resulting in a corrected version:
 
 ![image](https://github.com/user-attachments/assets/4b57682b-f098-42c3-ba2c-19ab38dee9d2)
