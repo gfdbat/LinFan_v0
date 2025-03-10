@@ -24,6 +24,7 @@ First of all, you need to ensure that you have:
   
 Follow the steps:
 * Create a Vivado project and add RTL code to the project (Top Module: embedded_ctrl.v)
+* Instantiate XADC in the IP Catalog
 * Set clock constraints. The clock of PL needs to be set to 50MHz. 
 * Set pin constraints to constrain the TACH and PWM interfaces of your fan, as well as the SCL and SDA interfaces of the screen IIC interface. Ensure that the TACH, SCL, and SDA interfaces are configured in PULLUP mode.
 * IMPORTANT: Modify the OLED intialization commands in `oled_data_gen.v`, accroding to your OLED controller User Manual
