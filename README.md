@@ -21,7 +21,7 @@ First of all, you need to ensure that you have:
 * A 4-pin PWM controlled speed fan
 * A 4pin IIC interface OLED display screen (with a resolution of 128 * 64, and a controller of `SH1106` in my project)
 * [Optional] 4 seven segment digital tubes
-* 
+  
 Follow the steps:
 * Create a Vivado project and add RTL code to the project (Top Module: embedded_ctrl.v)
 * Set clock constraints. The clock of PL needs to be set to 50MHz. 
